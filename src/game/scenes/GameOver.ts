@@ -1,4 +1,5 @@
 import { Scene } from "phaser";
+import { SceneTransition } from "../helpers/SceneTransition";
 
 export class GameOver extends Scene {
   camera: Phaser.Cameras.Scene2D.Camera;
@@ -10,6 +11,8 @@ export class GameOver extends Scene {
   }
 
   create() {
+    SceneTransition.fadeIn(this);
+    
     this.camera = this.cameras.main;
     const { width, height } = this.scale;
 
@@ -26,7 +29,7 @@ export class GameOver extends Scene {
     this.gameover_text.setOrigin(0.5);
 
     this.input.once("pointerdown", () => {
-      this.scene.start("MainMenu");
+      SceneTransition.fadeOutAndStart(this, "MainMenu", 250);
     });
   }
 }

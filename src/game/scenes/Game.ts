@@ -1,4 +1,5 @@
 import { Scene } from "phaser";
+import { SceneTransition } from "../helpers/SceneTransition";
 
 export class Game extends Scene {
   camera: Phaser.Cameras.Scene2D.Camera;
@@ -10,6 +11,8 @@ export class Game extends Scene {
   }
 
   create() {
+    SceneTransition.fadeIn(this);
+
     this.camera = this.cameras.main;
 
     const { width, height } = this.scale;
@@ -18,8 +21,8 @@ export class Game extends Scene {
     this.background.setAlpha(0.5);
 
     this.msg_text = this.add.text(
-      width/2,
-      height/1.5,
+      width / 2,
+      height / 1.5,
       "Start creating.\nEvery great game begins here.",
       {
         fontFamily: "Arial Black",
@@ -33,7 +36,7 @@ export class Game extends Scene {
     this.msg_text.setOrigin(0.5);
 
     this.input.once("pointerdown", () => {
-      this.scene.start("GameOver");
+      SceneTransition.fadeOutAndStart(this, "GameOver", 250);
     });
   }
 }

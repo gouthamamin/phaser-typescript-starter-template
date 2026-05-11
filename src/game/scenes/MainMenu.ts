@@ -1,4 +1,5 @@
 import { Scene, GameObjects } from "phaser";
+import { SceneTransition } from "../helpers/SceneTransition";
 
 export class MainMenu extends Scene {
   background: GameObjects.Image;
@@ -10,6 +11,8 @@ export class MainMenu extends Scene {
   }
 
   create() {
+    SceneTransition.fadeIn(this);
+
     const { width, height } = this.scale;
 
     this.background = this.add.image(width / 2, height / 2, "background");
@@ -28,7 +31,7 @@ export class MainMenu extends Scene {
       .setOrigin(0.5);
 
     this.input.once("pointerdown", () => {
-      this.scene.start("Game");
+      SceneTransition.fadeOutAndStart(this, "Game", 250);
     });
   }
 }
