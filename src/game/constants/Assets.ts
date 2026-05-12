@@ -5,4 +5,7 @@ export enum ImageKeys {
 
 export enum SpriteSheetKeys {}
 
-export enum AudioKeys {}
+export enum AudioKeys {
+  GAME_BGM = "game_bgm",
+  BUTTON_CLICK = "button_click"
+}

@@ -1,3 +1,5 @@
+import { AudioKeys } from "../constants/Assets";
+
 export class SoundManager {
   private static soundInstance: SoundManager;
   private scene: Phaser.Scene;
@@ -16,10 +18,12 @@ export class SoundManager {
 
     // Add sounds 
     this.bgm = {
-      'game_bgm': this.scene.sound.add('game_bgm', { loop: true }),
+      [AudioKeys.GAME_BGM]: this.scene.sound.add(AudioKeys.GAME_BGM, {
+        loop: true,
+      }),
     };
     this.sfx = {
-      'button_click': this.scene.sound.add('button_click'),
+      [AudioKeys.BUTTON_CLICK]: this.scene.sound.add(AudioKeys.BUTTON_CLICK),
     };
   }
 
