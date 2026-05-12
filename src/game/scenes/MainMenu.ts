@@ -1,5 +1,6 @@
 import { Scene, GameObjects } from "phaser";
 import { SceneTransition } from "../helpers/SceneTransition";
+import { ImageKeys } from "../constants/Assets";
 
 export class MainMenu extends Scene {
   background: GameObjects.Image;
@@ -15,9 +16,9 @@ export class MainMenu extends Scene {
 
     const { width, height } = this.scale;
 
-    this.background = this.add.image(width / 2, height / 2, "background");
+    this.background = this.add.image(width / 2, height / 2, ImageKeys.BACKGROUND);
 
-    this.logo = this.add.image(width / 2, height / 3, "logo");
+    this.logo = this.add.image(width / 2, height / 3, ImageKeys.LOGO);
 
     this.title = this.add
       .text(width / 2, 460, "Main Menu", {
