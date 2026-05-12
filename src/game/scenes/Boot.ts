@@ -1,4 +1,5 @@
 import { Scene } from "phaser";
+import { ImageKeys } from "../constants/Assets";
 
 export class Boot extends Scene {
   constructor() {
@@ -10,7 +11,7 @@ export class Boot extends Scene {
     //  The smaller the file size of the assets, the better, as the Boot Scene itself has no preloader.
 
     this.load.setPath('assets');
-    this.load.image("background", "backgrounds/background.png");
+    this.load.image(ImageKeys.BACKGROUND, "backgrounds/background.png");
 
   }
 

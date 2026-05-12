@@ -1,5 +1,6 @@
 import { Scene } from "phaser";
 import { SceneTransition } from "../helpers/SceneTransition";
+import { ImageKeys } from "../constants/Assets";
 
 export class GameOver extends Scene {
   camera: Phaser.Cameras.Scene2D.Camera;
@@ -16,7 +17,7 @@ export class GameOver extends Scene {
     this.camera = this.cameras.main;
     const { width, height } = this.scale;
 
-    this.background = this.add.image(width / 2, height / 2, "background");
+    this.background = this.add.image(width / 2, height / 2, ImageKeys.BACKGROUND);
 
     this.gameover_text = this.add.text(width / 2, height / 1.75, "Game Over", {
       fontFamily: "Arial Black",

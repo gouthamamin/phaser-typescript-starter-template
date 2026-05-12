@@ -1,5 +1,6 @@
 import { Scene } from "phaser";
 import { SceneTransition } from "../helpers/SceneTransition";
+import { ImageKeys } from "../constants/Assets";
 
 export class Game extends Scene {
   camera: Phaser.Cameras.Scene2D.Camera;
@@ -17,7 +18,7 @@ export class Game extends Scene {
 
     const { width, height } = this.scale;
 
-    this.background = this.add.image(width / 2, height / 2, "background");
+    this.background = this.add.image(width / 2, height / 2, ImageKeys.BACKGROUND);
     this.background.setAlpha(0.5);
 
     this.msg_text = this.add.text(
