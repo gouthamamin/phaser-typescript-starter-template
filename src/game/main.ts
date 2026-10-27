@@ -38,6 +38,10 @@ const StartGame = async (parent: string) => {
     return new Game(
         {
             ...config,
+            // overwrite width if provided in json
+            width: gameData.width ?? config.width,
+            height: gameData.height ?? config.height,
+            backgroundColor: gameData.backgroundColor ?? config.backgroundColor,
             parent,
             callbacks: {
                 preBoot: (game) => {
