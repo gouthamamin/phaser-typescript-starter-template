@@ -26,10 +26,25 @@ const config: Phaser.Types.Core.GameConfig = {
     }
 };
 
-const StartGame = (parent: string) => {
+const StartGame = async (parent: string) => {
+    // get the game data
+    const response = await fetch("/game-data.json");
+    if (!response.ok) {
+        throw new Error("error in loading game data");
+    };
+    const gameData = await response.json();
+    console.log("game data fetched:", gameData);
 
-    return new Game({ ...config, parent });
-
+    return new Game(
+        {
+            ...config,
+            parent,
+            callbacks: {
+                preBoot: (game) => {
+                    game.registry.set("game-data", gameData)
+                }
+            }
+        });
 }
 
 export default StartGame;
