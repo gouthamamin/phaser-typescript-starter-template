@@ -16,6 +16,7 @@ export class Boot extends Scene {
   }
 
   create() {
+    console.log("Game Data inside Boot :", this.registry.get("game-data"));
     this.scene.start('Preloader');
   }
 }
